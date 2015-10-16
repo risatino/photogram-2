@@ -1,5 +1,7 @@
 <h1>Editing photo #<%= @photo.id %></h1>
-<form action="/update_photo/<%= @photo.id %>">
+<%= form_tag photo_path(@, { : method => :patch } do }
+<!--#<form action="/update_photo/<%#= @photo.id %>">-->
+
   <div class="form-group">
     <label for="photo_caption">Caption:</label>
     <input id="photo_caption" class="form-control" type="text" name="the_caption" value="<%= @photo.caption %>">
@@ -11,5 +13,6 @@
   <div class="form-group">
     <input class="btn btn-default" type="submit" value="Update photo">
   </div>
-</form>
+<!--</form>-->
 
+<% end %>

@@ -4,15 +4,18 @@ class PhotosController < ApplicationController
   end
 
   def new_form
+    @photo = Phone.new
   end
 
   def create_row
     @photo = Photo.new
     @photo.caption = params['the_caption']
     @photo.source = params['the_source']
-    @photo.save
-
-    redirect_to "/photos/#{@photo.id}"
+    if @photo.save
+      redirect_to "/photos/#{@photo.id}"
+    else
+      render 'new_form'
+    end
   end
 
   def destroy

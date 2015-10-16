@@ -4,20 +4,24 @@
     <div class="caption">
       <p class="lead"><%= @photo.caption %></p>
       <p>
-        <a class="btn btn-primary" href="/photos/1">
-          <i class="fa fa-search-plus"></i>
-        </a>
+      <%= link_to "/photos/#{@photo.id}", { :class => 'btn btn-primary' } do %>
+        <i class="fa fa-search-plus"></i>
+      <% end %>
+
         <a class="btn btn-success" href="//htmlpreview.github.io/?https://github.com/boothappdev/bootstrap_exercises/blob/master/photogram/solution.html#">
           <i class="fa fa-heart-o"></i>
         </a>
 
         <!-- Make this edit link work -->
-        <a class="btn btn-warning" href="/photos/<%= @photo.id %>/edit">
-          <i class="fa fa-edit"></i>
-        </a>
-        <a class="btn btn-danger" href="/delete_photo/<%= @photo.id %>">
-          <i class="fa fa-trash-o"></i>
-        </a>
+
+        <%= link_to "/photos/#{@photo.id}/edit", { :class => 'btn btn-warning' } do %>
+        <i class="fa fa-edit"></i>
+        <% end %>
+
+        <%= link_to "/delete_photo/#{@photo.id}", { :class => 'btn btn-danger', :data => { :confirm => "Are you sure?"} } do %>
+        <i class="fa fa-trash-o"></i>
+        <% end %>
+
       </p>
     </div>
   </div>
